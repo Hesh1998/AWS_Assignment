@@ -1,0 +1,25 @@
+# Connecting to EC2 instance using terminal in MacOs or Linux (SSH),
+chmod 400 "name_of_pem_file.pem"
+ssh -i "name_of_pem_file.pem" ec2-user@Public_IPv4_DNS
+
+# Connecting to EC2 instance using MobaXterm (SSH)
+# Use Public IPv4 DNS as Remote host
+# And the private key in .pem
+
+# Installing python3 on the Linux EC2 instance,
+sudo yum update -y # Update the package repository
+sudo yum install python3 -y
+python3 --version
+sudo yum install python3-pip -y
+
+# Installing python libraries(Pandas)
+sudo pip3 install pandas
+
+# Check library correctly installed(Pandas)
+python3 # Open Python shell
+import pandas as pd 
+print(pd.__version__)
+
+# Exit from EC2 instance
+exit
+# Or press Ctrl+D
