@@ -1,0 +1,17 @@
+-- SP to Truncate and insert S3 data to product table
+CREATE OR REPLACE PROCEDURE "public"."product_i"()
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    TRUNCATE TABLE "public"."product";
+
+    COPY "public"."product"
+    FROM 's3://input-data-dwh/dataset/Products.csv'
+    IAM_ROLE 'arn:aws:iam::345594577144:role/Redshift'
+    CSV
+    IGNOREHEADER 1;
+END;
+$$;
+
+-- Execute SP to populate product table
+CALL "public"."product_i"();
