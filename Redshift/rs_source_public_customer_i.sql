@@ -7,7 +7,7 @@ BEGIN
 
     COPY "public"."customer"
     FROM 's3://input-data-dwh/dataset/Customers.csv'
-    IAM_ROLE 'arn:aws:iam::345594577144:role/Redshift' -- ARN of the IAM role (can be found from the console)
+    IAM_ROLE 'arn:aws:iam::345594577144:role/Redshift' -- ARN (Amazon Resource Name) of the IAM role (can be found from the console)
     CSV
     IGNOREHEADER 1;
 END;
