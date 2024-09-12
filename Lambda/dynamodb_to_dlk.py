@@ -38,7 +38,7 @@ def lambda_handler(event, context):
         
         # Saving the datafrmae to S3
         csv_buffer = StringIO()
-        df.to_csv(csv_buffer, index=False)
+        df.to_csv(csv_buffer, index=False, header=False)
         bucket_name = 'sales-data-dwh'
         file_name = 'dataset/address_data.csv'
         s3_client.put_object(Bucket=bucket_name, Key=file_name, Body=csv_buffer.getvalue())
